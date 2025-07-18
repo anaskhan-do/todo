@@ -1,9 +1,10 @@
 const express = require("express")
 const connectDB = require("./db/connect");
+require ("dotenv").config()
 
 
 const app = express()
-const port = 6000
+const PORT = process.env.PORT || 3214 
 
 
 
@@ -42,8 +43,8 @@ app.use("/api/user",require("./routes/user.route"))
 
 
 
-app.listen(port, () => {
-    console.log(`app is running like a dog ${port}`);
+app.listen(PORT, () => {
+    console.log(`app is running like a dog ${PORT}`);
 })
 
 

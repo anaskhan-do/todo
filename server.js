@@ -1,5 +1,7 @@
 const express = require("express")
 const connectDB = require("./db/connect");
+
+
 require ("dotenv").config()
 
 
@@ -32,9 +34,9 @@ app.use(express.urlencoded({ extended: true }));
 connectDB()
 
 
-app.use("/api/auth",require("./routes/auth.route"))
-app.use("/api/todo",require("./routes/todo.route"))
-app.use("/api/user",require("./routes/user.route"))
+app.use("/auth",require("./routes/auth.route"))
+app.use("/todo",require("./routes/todo.route"))
+app.use("/user",require("./routes/user.route"))
 
 
 

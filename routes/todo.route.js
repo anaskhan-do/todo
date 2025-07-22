@@ -11,9 +11,9 @@ router.post ("/createTodo" , createTodo)
 
 router.get ("/getTodo" , getTodo)
 
-router.put ("/updateTodo", updateTodo)
+router.put ("/updateTodo/:id", updateTodo)
 
-router.delete ("/deleteTodo" , deleteTodo)
+router.delete("/deleteTodo/:id" , deleteTodo)
 
 
 

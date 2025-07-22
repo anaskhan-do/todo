@@ -11,10 +11,6 @@ const todoSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
-    completed: {
-        type: Boolean,
-        default: false
-    },
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: User , // references the User model

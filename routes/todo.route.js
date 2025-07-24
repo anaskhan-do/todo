@@ -1,5 +1,7 @@
 const express = require("express")
-const { updateTodo, createTodo, getTodo, deleteTodo } = require("../controllers/todo.controller")
+const { updateTodo, createTodo,  deleteTodo, getAllTodo } = require("../controllers/todo.controller")
+const authMiddleware = require("../middleware/authmiddleware")
+const cMiddlewareTodo = require("../middleware/cMiddlewaretodo")
 
 
 
@@ -7,9 +9,9 @@ const router = express.Router()
 
 
 
-router.post ("/createTodo" , createTodo)
+router.post ("/createtodo",  [authMiddleware , cMiddlewareTodo ], createTodo)
 
-router.get ("/getTodo" , getTodo)
+router.get ("/getAllTodo/:id", authMiddleware , getAllTodo)
 
 router.put ("/updateTodo/:id", updateTodo)
 

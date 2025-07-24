@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const User = require('./User');
+
 
 const todoSchema = new mongoose.Schema({
     title: {
@@ -13,8 +13,8 @@ const todoSchema = new mongoose.Schema({
     },
     userId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: User , // references the User model
-        required: true
+        ref: 'User',
+       
     },
     createdAt: {
         type: Date,

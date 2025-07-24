@@ -15,8 +15,7 @@ const signUp = async (request, response) => {
 
      
 
-        const { firstName, lastName, email, password } = data
-
+        const { firstName, lastName, email, password } = request.body
 
         const isUserAlreadyInOurDatabase = await User.findOne({
             email
@@ -54,7 +53,7 @@ const signUp = async (request, response) => {
 
         return response.status(201).json({
             message: "Signup successful",
-            user: userT,
+             userT,
             token
 
         });
@@ -101,7 +100,7 @@ const login = async (request, response) => {
         const token = JWT.sign(
             { id: user._id, email: user.email },
             process.env.JWTSecretkey,
-            { expiresIn: "1h" })
+            { expiresIn: "1d" });
 
         const isPasswordCorrect = await bcrypt.compare(password, user.password)
 

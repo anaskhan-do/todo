@@ -5,8 +5,7 @@ const authMiddleware =  (request, response, next) => {
 
     try {
 
-        const authheader = request.header.authorization
-
+        const authheader = request.headers.authorization;
         if (!authheader) {
 
             return response.status(401).json({
@@ -28,20 +27,14 @@ const decoded = JWT.verify(token, process.env.JWTSecretKey);
 next();
     
 
-
     } catch (error) {
-
-
 
         return res.status(401).json({
             message: "Invalid or expired token",
             error: error.message
 
-    
-
-
         
-})
+});
 
     }
 }

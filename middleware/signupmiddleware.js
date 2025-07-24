@@ -7,17 +7,16 @@ const signUpMiddleware =  (request , response , next ) =>{
 
       const data = request.body
 
-      const {firtName , lastName , email , password  } = data
+      const {firstName , lastName , email , password  } = data
       
             
-      if(!firtName){
+      if(!firstName){
 
         return response.status(400).json({
 
             m : "firstName is required "
         })
       }
-
 
       
       if(!lastName){
@@ -46,7 +45,7 @@ const signUpMiddleware =  (request , response , next ) =>{
       }
 
     
-next();
+      next();
         
     } catch (error) {
 
